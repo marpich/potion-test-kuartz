@@ -42,5 +42,4 @@ class LotsController < ApplicationController
   def lot_params
     params.require(:lot).permit(:name, :remaining_qty)
   end
-
 end

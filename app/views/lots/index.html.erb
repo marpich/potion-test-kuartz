@@ -1,7 +1,12 @@
-<h1>Index des Lots</h1>
+<div>
+  <h1 class="font-bold text-4xl">Lots#index</h1>
+  <p>Find me in app/views/lots/index.html.erb</p>
+</div>
+<div>
 <ul>
   <% @lots.each do |lot| %>
     <li><%= lot.name %></li>
     <li><%= lot.remaining_qty %>mg</li>
   <% end %>
 </ul>
+</div>
