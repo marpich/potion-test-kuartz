@@ -1,8 +1,7 @@
 <h1>Index des Lots</h1>
-
 <ul>
   <% @lots.each do |lot| %>
     <li><%= lot.name %></li>
-    <li><%= lot.remaining_qty %></li>
+    <li><%= lot.remaining_qty %>mg</li>
   <% end %>
 </ul>
