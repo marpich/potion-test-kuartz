@@ -7,6 +7,10 @@
   <% @lots.each do |lot| %>
     <li><%= lot.name %></li>
     <li><%= lot.remaining_qty %>mg</li>
+    <%= link_to 'Modifier', edit_lot_path(lot) %>
+    <%= link_to 'Supprimer', lot, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </ul>
 </div>
+
+<%= link_to 'Créer un lot de matière première', new_lot_path %>
