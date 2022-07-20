@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_20_141747) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_20_144031) do
   create_table "bottles", force: :cascade do |t|
     t.integer "qty"
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.integer "qty"
+    t.integer "lot_id", null: false
+    t.integer "bottle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bottle_id"], name: "index_compositions_on_bottle_id"
+    t.index ["lot_id"], name: "index_compositions_on_lot_id"
   end
 
   create_table "lots", force: :cascade do |t|
@@ -25,4 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_141747) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "compositions", "bottles"
+  add_foreign_key "compositions", "lots"
 end

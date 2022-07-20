@@ -1,7 +1,7 @@
 class LotsController < ApplicationController
   def index
     @lots = Lot.all
- end
+  end
 
   def show
     @lot = Lot.find(params[:id])
