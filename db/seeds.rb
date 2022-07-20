@@ -8,6 +8,8 @@
 puts "Cleaning the database"
 
 Lot.destroy_all
+Bottle.destroy_all
+Composition.destroy_all
 
 puts "Creating the lots"
 
@@ -42,3 +44,64 @@ lot5 = Lot.new(
 lot5.save!
 
 puts "Creating lots done"
+
+puts "Creating the bottles"
+
+bottle1 = Bottle.new(
+  label: "pur",
+  qty: 25
+)
+bottle1.save!
+
+bottle2 = Bottle.new(
+  label: "pur",
+  qty: 125
+)
+bottle2.save!
+
+bottle3 = Bottle.new(
+  label: "mix",
+  qty: 75
+)
+bottle3.save!
+
+puts "Creating bottles done"
+
+puts "Creating the compositions"
+
+composition1 = Composition.new(
+  qty: 25,
+  lot: lot3,
+  bottle: bottle1
+)
+composition1.save!
+
+composition2 = Composition.new(
+  qty: 75,
+  lot: lot1,
+  bottle: bottle2
+)
+composition2.save!
+
+composition3 = Composition.new(
+  qty: 50,
+  lot: lot2,
+  bottle: bottle2
+)
+composition3.save!
+
+composition4 = Composition.new(
+  qty: 25,
+  lot: lot3,
+  bottle: bottle3
+)
+composition4.save!
+
+composition5 = Composition.new(
+  qty: 50,
+  lot: lot2,
+  bottle: bottle3
+)
+composition5.save!
+
+puts "Creating compositions done"
