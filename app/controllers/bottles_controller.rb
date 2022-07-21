@@ -12,9 +12,9 @@ class BottlesController < ApplicationController
     end
   end
 
-  def show
-    @bottle = Bottle.find(params[:id])
-  end
+  # def show
+  #   @bottle = Bottle.find(params[:id])
+  # end
 
   def index
     @bottles = Bottle.all

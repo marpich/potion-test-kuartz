@@ -3,28 +3,28 @@
   <p class="text-center italic mb-10">(Numéro de lot - Molécule - Quantité restante)</p>
   <div class="flex flex-row">
     <div class="basis-1/2 text-center">
-    <h3 class="text-xl mb-5 border-b-2 border-indigo-400 mx-10"> Tous les lots</h3>
-    <% @lots.each do |lot| %>
-      <p>Lot n°<%= lot.id %> • <%= lot.name %> • <%= lot.remaining_qty %> mg</p>
-      <div class="mb-5 mt-2">
-        <%= link_to 'Modifier', edit_lot_path(lot), class: "border-2 border-pink-300 hover:bg-white py-2 px-2 rounded bg-pink-300" %>
-        <%= link_to 'Supprimer', lot_path(lot), class: "underline underline-offset-4 hover:text-indigo-400", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      </div>
-    <% end %>
+      <h3 class="text-xl mb-5 border-b-2 border-indigo-400 mx-10 font-medium"> Tous les lots</h3>
+      <% @lots.each do |lot| %>
+        <p>Lot n°<%= lot.id %> • <strong><%= lot.name %></strong> • <i><%= lot.remaining_qty %> mg</i></p>
+        <div class="mb-5 mt-2">
+          <%= link_to 'Modifier', edit_lot_path(lot), class: "text-white border-2 border-pink-300 hover:text-pink-300 hover:bg-white py-2 px-2 rounded bg-pink-300" %>
+          <%= link_to 'Supprimer', lot_path(lot), class: "underline underline-offset-4 underline decoration-indigo-400 hover:text-indigo-400", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      <% end %>
     </div>
 
     <div class="basis-1/2 text-center">
-    <h3 class="text-xl mb-5 border-b-2 border-indigo-400 mx-10">Lots en stock qui ne sont pas utilisés</h3>
-    <% @filtered_lots.each do |lot| %>
-      <div class="mb-5">
-        <p>Lot n°<%= lot.id %> • <%= lot.name %> • <%= lot.remaining_qty %> mg</p>
-      </div>
-    <% end %>
+      <h3 class="text-xl mb-5 border-b-2 border-indigo-400 mx-10 font-medium">Lots en stock qui ne sont pas utilisés</h3>
+      <% @filtered_lots.each do |lot| %>
+        <div class="mb-5">
+          <p>Lot n°<%= lot.id %> • <strong><%= lot.name %></strong> • <i><%= lot.remaining_qty %> mg</i></p>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="my-7 mx-auto w-1/4 py-3 text-center bg-indigo-400 hover:bg-indigo-500 rounded">
-      <%= link_to new_lot_path do %>
-        <p class="text-lg text-white">Ajouter un Lot</p>
-      <% end %>
-    </div>
+    <%= link_to new_lot_path do %>
+      <p class="text-lg text-white">Ajouter un Lot</p>
+    <% end %>
+  </div>
 </div>

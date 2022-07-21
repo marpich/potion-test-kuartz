@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'pages#home'
 
-  resources :lots, only: [:new, :show, :create, :index, :edit, :update, :destroy]
-  resources :bottles, only: [:show, :index]
-  resources :compositions, only: [:index, :show]
+  resources :lots, only: [:new, :create, :index, :edit, :update, :destroy]
+  resources :bottles, only: [:index]
+  # resources :compositions, only: [:index, :show]
 end

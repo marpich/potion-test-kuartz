@@ -1,6 +1,5 @@
 <div class="container mx-auto mt-10">
   <h2 class="text-center text-2xl font-bold mt-10 mb-10">Liste des Flacons</h2>
-
   <div class="grid grid-cols-4 gap-4 text-center auto-cols-max border-b-2 border-indigo-400">
     <div class="font-bold border-b-2 border-indigo-400">Numéro du Lot</div>
     <div class="font-bold border-b-2 border-indigo-400">Label</div>
@@ -17,23 +16,4 @@
       </div>
     <% end %>
   </div>
-
-
-  
-
-
-  <% @bottles.each do |bottle| %>
-    <div class="mx-auto mb-10 px-5">
-    <p>Numéro du lot: <%= bottle.id %></p>
-    <p>Label: <%= bottle.label %></p>
-    <p>Quantité: <%= bottle.qty %></p>
-    <% bottle.compositions.each do |composition| %>
-      <p>Composition</p>
-      <p><%= composition.qty %> mg</p>
-      <p>du lot n°<%= composition.lot_id %></p>
-      <p>de <%= composition.lot.name %></p>
-    <% end %>
-    </div>
-  <% end %>
-
 </div>

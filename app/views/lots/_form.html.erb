@@ -1,14 +1,13 @@
-
-<%= simple_form_for(@lot) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :remaining_qty %>
+<div class="container mx-auto mt-10">
+  <div class="text-center">
+    <%= simple_form_for(@lot) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="grid grid-flow-row auto-rows-max gap-4 text-center">
+        <%= f.input :name, label: "Nom de la Molécule " %>
+        <%= f.input :remaining_qty, label: "Quantité restante " %>
+        <%= f.button :submit, "Enregistrer", class:"my-7 mx-auto px-3 py-3 text-center bg-pink-300 hover:bg-pink-400 rounded text-lg text-white" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Enregistrer" %>
-  </div>
-<% end %>
+</div>

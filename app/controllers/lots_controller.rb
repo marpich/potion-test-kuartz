@@ -4,9 +4,9 @@ class LotsController < ApplicationController
     @filtered_lots = filtered_lots
   end
 
-  def show
-    @lot = Lot.find(params[:id])
-  end
+  # def show
+  #   @lot = Lot.find(params[:id])
+  # end
 
   def new
     @lot = Lot.new
