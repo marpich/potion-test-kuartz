@@ -46,6 +46,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'rubocop-rails', require: false
+gem 'simple_form'
+gem 'heroicon'
+gem 'simple_form_tailwind_css'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

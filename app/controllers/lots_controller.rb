@@ -1,6 +1,7 @@
 class LotsController < ApplicationController
   def index
     @lots = Lot.all
+    @filtered_lots = filtered_lots
   end
 
   def show
@@ -14,7 +15,7 @@ class LotsController < ApplicationController
   def create
     @lot = Lot.new(lot_params)
     if @lot.save
-      redirect_to lot_path(@lot)
+      redirect_to lots_path
     else
       render :new
     end
@@ -27,8 +28,7 @@ class LotsController < ApplicationController
   def update
     @lot = Lot.find(params[:id])
     @lot.update(lot_params)
-    # No need for app/views/restaurants/update.html.erb
-    redirect_to lot_path(@lot)
+    redirect_to lots_path
   end
 
   def destroy
@@ -41,5 +41,12 @@ class LotsController < ApplicationController
 
   def lot_params
     params.require(:lot).permit(:name, :remaining_qty)
+  end
+
+  def filtered_lots
+    lots = Lot.all
+    lots.select do |lot|
+      lot.compositions.empty? && lot.remaining_qty.positive?
+    end
   end
 end

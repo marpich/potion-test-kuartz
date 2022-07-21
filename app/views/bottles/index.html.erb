@@ -1,4 +1,23 @@
+
 <div>
   <h1 class="font-bold text-4xl">Bottles#index</h1>
   <p>Find me in app/views/bottles/index.html.erb</p>
 </div>
+
+<% @bottles.each do |bottle| %>
+  <div class="mx-auto mt-28 px-5">
+  <p>Numéro du lot:<%= bottle.id %></p>
+  <p>Label:<%= bottle.label %></p>
+  <p>Quantité:<%= bottle.qty %></p>
+  <% bottle.compositions.each do |composition| %>
+    <p>Composition</p>
+    <p><%= composition.qty %>mg</p>
+    <p>du lot n°<%= composition.lot_id %></p>
+    <p>de<%= composition.lot.name %></p>
+  <% end %>
+  </div>
+<% end %>
+
+<button type="button" class="bg-indigo-600">
+  Button
+</button>

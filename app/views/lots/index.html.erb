@@ -1,16 +1,20 @@
+<div class="container">
 <div>
   <h1 class="font-bold text-4xl">Lots#index</h1>
-  <p>Find me in app/views/lots/index.html.erb</p>
-</div>
-<div>
-<ul>
-  <% @lots.each do |lot| %>
-    <li><%= lot.name %></li>
-    <li><%= lot.remaining_qty %>mg</li>
-    <%= link_to 'Modifier', edit_lot_path(lot) %>
-    <%= link_to 'Supprimer', lot, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-</ul>
 </div>
 
+  <% @lots.each do |lot| %>
+  <p><%= lot.name %> • <%= lot.remaining_qty %>mg</p>
+  <p><%= link_to 'Modifier', edit_lot_path(lot), class: "btn btn-gradient" %></p>
+  <p><%= link_to 'Supprimer', lot_path(lot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+  <% end %>
+
+<h1>Mes lots filtrés</h1>
+<% @filtered_lots.each do |lot| %>
+  <p><%= lot.name %></p>
+  <p><%= lot.remaining_qty %></p>
+<% end %>
+
+
 <%= link_to 'Créer un lot de matière première', new_lot_path %>
+</div>
