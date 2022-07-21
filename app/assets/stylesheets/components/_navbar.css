@@ -1,0 +1,16 @@
+.navbar {
+  margin-bottom: 10px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+  background-color: rgb(236, 234, 234);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.navbar-image {
+  width: 120px;
+}

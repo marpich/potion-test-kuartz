@@ -1,23 +1,39 @@
+<div class="container mx-auto mt-10">
+  <h2 class="text-center text-2xl font-bold mt-10 mb-10">Liste des Flacons</h2>
 
-<div>
-  <h1 class="font-bold text-4xl">Bottles#index</h1>
-  <p>Find me in app/views/bottles/index.html.erb</p>
-</div>
-
-<% @bottles.each do |bottle| %>
-  <div class="mx-auto mt-28 px-5">
-  <p>Numéro du lot:<%= bottle.id %></p>
-  <p>Label:<%= bottle.label %></p>
-  <p>Quantité:<%= bottle.qty %></p>
-  <% bottle.compositions.each do |composition| %>
-    <p>Composition</p>
-    <p><%= composition.qty %>mg</p>
-    <p>du lot n°<%= composition.lot_id %></p>
-    <p>de<%= composition.lot.name %></p>
-  <% end %>
+  <div class="grid grid-cols-4 gap-4 text-center auto-cols-max border-b-2 border-indigo-400">
+    <div class="font-bold border-b-2 border-indigo-400">Numéro du Lot</div>
+    <div class="font-bold border-b-2 border-indigo-400">Label</div>
+    <div class="font-bold border-b-2 border-indigo-400">Quantité</div>
+    <div class="font-bold border-b-2 border-indigo-400">Composition</div>
+    <% @bottles.each do |bottle| %>
+      <div><%= bottle.id %></div>
+      <div><%= bottle.label.capitalize %></div>
+      <div><%= bottle.qty %> mg</div>
+      <div>
+        <% bottle.compositions.each do |composition| %>
+          <p><%= composition.qty %> mg du lot n°<%= composition.lot_id %> de <%= composition.lot.name %></p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
 
-<button type="button" class="bg-indigo-600">
-  Button
-</button>
+
+  
+
+
+  <% @bottles.each do |bottle| %>
+    <div class="mx-auto mb-10 px-5">
+    <p>Numéro du lot: <%= bottle.id %></p>
+    <p>Label: <%= bottle.label %></p>
+    <p>Quantité: <%= bottle.qty %></p>
+    <% bottle.compositions.each do |composition| %>
+      <p>Composition</p>
+      <p><%= composition.qty %> mg</p>
+      <p>du lot n°<%= composition.lot_id %></p>
+      <p>de <%= composition.lot.name %></p>
+    <% end %>
+    </div>
+  <% end %>
+
+</div>
