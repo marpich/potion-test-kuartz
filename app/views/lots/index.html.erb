@@ -1,17 +1,30 @@
-<div class="container">
-  <h1 class="font-bold text-4xl">Lots de matière première</h1>
-  <div class="lots">
-    <h2> Tous les lots</h2>
+<div class="container mx-auto mt-10">
+  <h2 class="text-center text-2xl font-bold mt-10">Liste des Lots de matière première</h2>
+  <p class="text-center italic mb-10">(Numéro de lot - Molécule - Quantité restante)</p>
+  <div class="flex flex-row">
+    <div class="basis-1/2 text-center">
+    <h3 class="text-xl mb-5 border-b-2 border-indigo-400 mx-10"> Tous les lots</h3>
     <% @lots.each do |lot| %>
       <p>Lot n°<%= lot.id %> • <%= lot.name %> • <%= lot.remaining_qty %> mg</p>
-      <%= link_to 'Modifier', edit_lot_path(lot), class: "btn btn-gradient" %>
-      <p><%= link_to 'Supprimer', lot_path(lot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+      <div class="mb-5 mt-2">
+        <%= link_to 'Modifier', edit_lot_path(lot), class: "border-2 border-pink-300 hover:bg-white py-2 px-2 rounded bg-pink-300" %>
+        <%= link_to 'Supprimer', lot_path(lot), class: "underline underline-offset-4 hover:text-indigo-400", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
     <% end %>
+    </div>
 
-    <h2>Les lots en stock qui ne sont pas utilisés</h2>
+    <div class="basis-1/2 text-center">
+    <h3 class="text-xl mb-5 border-b-2 border-indigo-400 mx-10">Lots en stock qui ne sont pas utilisés</h3>
     <% @filtered_lots.each do |lot| %>
-      <p>Lot n°<%= lot.id %> • <%= lot.name %> • <%= lot.remaining_qty %> mg</p>
+      <div class="mb-5">
+        <p>Lot n°<%= lot.id %> • <%= lot.name %> • <%= lot.remaining_qty %> mg</p>
+      </div>
     <% end %>
+    </div>
   </div>
-<%= link_to 'Nouveau Lot', new_lot_path %>
+  <div class="my-7 mx-auto w-1/4 py-3 text-center bg-indigo-400 hover:bg-indigo-500 rounded">
+      <%= link_to new_lot_path do %>
+        <p class="text-lg text-white">Ajouter un Lot</p>
+      <% end %>
+    </div>
 </div>
