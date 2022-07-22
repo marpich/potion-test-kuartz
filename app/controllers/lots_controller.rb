@@ -17,7 +17,7 @@ class LotsController < ApplicationController
     if @lot.save
       redirect_to lots_path
     else
-      render :new
+      render :new, notice: @lot.errors.messages
     end
   end
 
